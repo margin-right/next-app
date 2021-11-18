@@ -16,6 +16,8 @@ export default function About(){
                     <span className="fs-4">Wrote Эбаут</span>
                 </a>
 
+
+
                 <ul className="nav nav-pills">
                     <li className="nav-item"><Link href={'/'}><a className="nav-link" aria-current="page">Детдом</a></Link></li>
                     <li className="nav-item"><Link href={'posts'}><a className="nav-link">Посты</a></Link></li>

@@ -16,6 +16,8 @@ export default function Posts(){
                     <span className="fs-4">Посты, какие посты блин</span>
                 </a>
 
+
+
                 <ul className="nav nav-pills">
                     <li className="nav-item"><Link href={'/'}><a className="nav-link" aria-current="page">Детдом</a></Link></li>
                     <li className="nav-item"><Link href={'posts'}><a className="nav-link active">Посты</a></Link></li>
