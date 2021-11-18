@@ -11,10 +11,9 @@ export default function Home() {
       </Head>
       <div className="container">
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <Link href={'/'}><a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <Link href={'/'}><a className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <span className="fs-4">А зачем что-то кроме next.js?</span>
           </a></Link>
-
           <ul className="nav nav-pills">
             <li className="nav-item"><Link href={'/'}><a className="nav-link active" aria-current="page">Детдом</a></Link></li>
             <li className="nav-item"><Link href={'posts'}><a className="nav-link">Посты</a></Link></li>
@@ -36,7 +35,7 @@ export default function Home() {
             </div>
             <div className="form-floating mb-3">
                 <input type="password" className="form-control" id="floatingPassword" placeholder="Password"></input>
-                <label for="floatingPassword">Password</label>
+                <label htmlFor="floatingPassword">Password</label>
             </div>
             <div className="checkbox mb-3">
                 <label>
