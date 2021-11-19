@@ -2,10 +2,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import { Button, Card } from 'semantic-ui-react';
+import LoginForm from '../components/form';
 
 
 
 export default function Home({users}) {
+
   return (
     <div>
       <Head>
@@ -51,24 +53,7 @@ export default function Home({users}) {
             })}</p>
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
-            <form className="p-4 p-md-5 border rounded-3 bg-light">
-            <div className="form-floating mb-3">
-                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"></input>
-                <label htmlFor="floatingInput">Email address</label>
-            </div>
-            <div className="form-floating mb-3">
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Password"></input>
-                <label htmlFor="floatingPassword">Password</label>
-            </div>
-            <div className="checkbox mb-3">
-                <label>
-                <input type="checkbox" value="remember-me"></input> Remember me
-                </label>
-            </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-            <hr className="my-4"></hr>
-            <small className="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-            </form>
+            <LoginForm />
         </div>
         </div>
       </div>
