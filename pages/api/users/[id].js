@@ -1,6 +1,6 @@
 import dbConnect from "../../../utils/dbConnection";
 import Note from "../../../models/Note";
-
+dbConnect();
 export default async (req, res) => {
     const {
         query: {id},
