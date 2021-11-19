@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
+import { Button, Card } from 'semantic-ui-react';
 
-export default function Home() {
+
+
+export default function Home({users}) {
   return (
     <div>
       <Head>
@@ -25,7 +29,26 @@ export default function Home() {
         <div className="row align-items-center g-lg-5 py-5">
         <div className="col-lg-7 text-center text-lg-start">
             <h1 className="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
-            <p className="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            <p className="col-lg-10 fs-4">{users.map(user => {
+              return(
+                <div key={user._id}>
+                  <Card>
+                    <Card.Content>
+                      <Card.Header>
+                        <Link href={`/api/users/${user._id}`}>
+                          <a>{user.login}</a>
+                        </Link>
+                      </Card.Header>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <Link href={`/api/users/${user._id}`}>
+                          <Button primary>View</Button>
+                        </Link>
+                    </Card.Content>
+                  </Card>
+                </div>
+              )
+            })}</p>
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
             <form className="p-4 p-md-5 border rounded-3 bg-light">
@@ -52,3 +75,9 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getInitialProps = async () =>{
+  const res = await fetch('http://localhost:3000/api/users');
+  const {data} = await res.json();
+  return {users: data}
+} 
