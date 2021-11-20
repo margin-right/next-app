@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import { Button, Card } from 'semantic-ui-react';
-import Form from '../components/Form';
+import Form from './components/Form';
 import React from 'react';
 import { useState } from 'react';
-import UserBlock from '../components/UserBlock';
+import UserBlock from './components/UserBlock';
 
 
 
