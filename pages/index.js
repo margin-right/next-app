@@ -1,11 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-import { Button, Card } from 'semantic-ui-react';
-import Form from './components/Form';
 import React from 'react';
 import { useState } from 'react';
-import UserBlock from './components/UserBlock';
+import UserBlock from '../components/UserBlock';
+import LogForm from '../components/Form';
 
 
 
@@ -47,7 +46,7 @@ export default function Home({users}) {
             })}</p>
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
-            <Form />
+            <LogForm />
         </div>
         </div>
       </div>
