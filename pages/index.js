@@ -40,7 +40,9 @@ export default function Home({users}) {
             <h1 className="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
             <p className="col-lg-10 fs-4">{ussers.map(user => {
               return(
+                <div  className='userblock' key={user._id}>
                 <UserBlock name={user} />
+                </div>
               )
             })}</p>
         </div>
@@ -54,7 +56,7 @@ export default function Home({users}) {
 }
 
 Home.getInitialProps = async () =>{
-  const res = await fetch('http://localhost:3000/api/users');
+  const res = await fetch('https://next-app-tau-lake.vercel.app/api/users');
   const {data} = await res.json();
   return {users: data}
 } 
