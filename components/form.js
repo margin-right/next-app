@@ -1,36 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { loginUser } from "../utils/auth";
 
-class LoginForm extends React.Component{
+export default function Form() {
 
-    state = {
-        login: '',
-        password: ''
-        };
+    const [state, setState] = useState({login: '',password: ''})
+    const [loginState, setLogin] = useState('');
+    const [passwordState, setPassword] = useState('');
 
-        formChange = event => {
-        this.setState({[event.target.name]: event.target.value});
-        }
-        userSubmit = event => {
+
+    return (
+
         
-        const {login, password} = this.state;
 
-        event.preventDefault();
-        console.log(this.state);
-
-        loginUser(login, password);
-        }
-
-
-        render(){
-            return(
-                <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={this.userSubmit}>
+        <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={event => {event.preventDefault();console.log(state);loginUser(loginState, passwordState);}}>
             <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="floatingInput" name="login" placeholder="name@example.com" onChange={this.formChange}></input>
+                <input type="text" className="form-control" id="floatingInput" name="login" placeholder="name@example.com" onChange={event => setLogin(event.target.value)}></input>
                 <label htmlFor="floatingInput">Email address</label>
             </div>
             <div className="form-floating mb-3">
-                <input type="password" className="form-control" id="floatingPassword" name="password" placeholder="Password" onChange={this.formChange}></input>
+                <input type="password" className="form-control" id="floatingPassword" name="password" placeholder="Password" onChange={event => setPassword(event.target.value)}></input>
                 <label htmlFor="floatingPassword">Password</label>
             </div>
             <div className="checkbox mb-3">
@@ -42,9 +30,5 @@ class LoginForm extends React.Component{
             <hr className="my-4"></hr>
             <small className="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             </form>
-            )
-        }
-
+    )
 }
-
-export default LoginForm;

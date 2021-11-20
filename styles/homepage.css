@@ -1,0 +1,11 @@
+.userblock{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blueviolet;
+    margin: 5px;
+    border-radius: 60px;
+    align-items: center;
+  }
+  .login-p{
+      margin: 2px;
+  }
