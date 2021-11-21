@@ -10,9 +10,20 @@ import LogForm from '../components/Form';
 
 
 export default function Home({users}) {
-
+  
   const [ussers, setUssers] = useState(users) 
+  console.log(users)
+  function a(){
+    console.log('hi')
+  }
 
+    async function dataUpdate() {
+      const ress = await fetch('http://localhost:3000/api/users');
+      const NewData = await ress.json();
+      console.log(NewData.data)
+      setUssers(NewData.data)
+      
+    }
 
   return (
     <div>
@@ -44,9 +55,10 @@ export default function Home({users}) {
                 </div>
               )
             })}</p>
-        </div>
+            <button onClick={dataUpdate}>Обновить</button>
+        </div>  
         <div className="col-md-10 mx-auto col-lg-5">
-            <LogForm />
+            <LogForm upDate = {dataUpdate}/>
         </div>
         </div>
       </div>
@@ -55,7 +67,7 @@ export default function Home({users}) {
 }
 
 Home.getInitialProps = async () =>{
-  const res = await fetch('https://next-app-tau-lake.vercel.app/api/users');
+  const res = await fetch('https://next-app-tau-lake.vercel.app:3000/api/users');
   const {data} = await res.json();
   return {users: data}
 } 

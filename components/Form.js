@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { loginUser } from "../utils/auth";
 
-export default function Form() {
+export default function Form(dataUpdate) {
 
-    const [state, setState] = useState({login: '',password: ''})
+
     const [loginState, setLogin] = useState('');
     const [passwordState, setPassword] = useState('');
 
-
+ 
     return (
-
-        
-
-        <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={event => {event.preventDefault();console.log(state);loginUser(loginState, passwordState);}}>
+        <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={event => {event.preventDefault();loginUser(loginState, passwordState);dataUpdate.upDate()}}>
             <div className="form-floating mb-3">
                 <input type="text" className="form-control" id="floatingInput" name="login" placeholder="name@example.com" onChange={event => setLogin(event.target.value)}></input>
                 <label htmlFor="floatingInput">Email address</label>
