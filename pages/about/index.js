@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Head from 'next/head'
 
 export default function About(){
@@ -9,23 +8,6 @@ export default function About(){
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"></link>
             </Head>
-            <div className="container">
-                <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <Link href={'/'}><a className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    
-                    <span className="fs-4">Wrote Эбаут</span>
-                </a></Link>
-
-
-
-                <ul className="nav nav-pills">
-                    <li className="nav-item"><Link href={'/'}><a className="nav-link" aria-current="page">Детдом</a></Link></li>
-                    <li className="nav-item"><Link href={'posts'}><a className="nav-link">Посты</a></Link></li>
-                    <li className="nav-item"><Link href={'/about'}><a className="nav-link active">Эбаут</a></Link></li>
-                </ul>
-                </header>
-                
-            </div>
             <div className="px-4 py-5 my-5 text-center">
                 <img className="d-block mx-auto mb-4" src="dance.gif"></img>
                 <h1 className="display-5 fw-bold">ooo\\||//ooo</h1>
