@@ -14,7 +14,7 @@ export default function Home({users}) {
   const [ussers, setUssers] = useState(users) 
 
     async function dataUpdate() {
-      const ress = await fetch('https://next-app-tau-lake.vercel.app/api/users');
+      const ress = await fetch('http://localhost:3000/api/users');
       const NewData = await ress.json();
       console.log(NewData.data)
       setUssers(NewData.data)
@@ -51,7 +51,7 @@ export default function Home({users}) {
 }
 
 Home.getInitialProps = async () =>{
-  const res = await fetch('https://next-app-tau-lake.vercel.app/api/users');
+  const res = await fetch('http://localhost:3000/api/users');
   const {data} = await res.json();
   return {users: data}
 } 

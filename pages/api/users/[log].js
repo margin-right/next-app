@@ -1,15 +1,16 @@
 import dbConnect from "../../../utils/dbConnection";
 import Note from "../../../models/Note";
+
 dbConnect();
 export default async (req, res) => {
     const {
-        query: {id},
+        query: {log},
         method
     } = req;
     switch (method) {
         case 'GET':
             try {
-                const note = await Note.findById(id);
+                const note = await Note.findOne({login: log});
                 if(!note){
                     return res.status(400).json({success: false})
                 }
@@ -20,7 +21,7 @@ export default async (req, res) => {
             break;
         case 'PUT':
             try {
-                const note = await Note.findByIdAndUpdate(id, req.body, {
+                const note = await Note.findByIdAndUpdate(log, req.body, {
                     new: true,
                     runValidators: true
                 });
@@ -34,7 +35,7 @@ export default async (req, res) => {
             break;
         case 'DELETE':
             try {
-                const deletedNote = await Note.deleteOne({_id: id});
+                const deletedNote = await Note.deleteOne({login: log});
                 if(!deletedNote){
                     return res.status(400).json({success: false})
                 }

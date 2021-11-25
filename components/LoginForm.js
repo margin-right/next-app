@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { loginUser } from "../utils/auth";
 
-export default function Form(dataUpdate) {
+export default function LoginForm() {
 
 
     const [loginState, setLogin] = useState('');
     const [passwordState, setPassword] = useState('');
 
-    async function SubMit(){
+    async function LoginSubMit(){
         await loginUser(loginState, passwordState);
-        await dataUpdate.upDate()
     }
  
     return (
-        <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={event => {event.preventDefault();SubMit()}}>
+        <form className="p-4 p-md-5 border rounded-3 bg-light" onSubmit={event => {event.preventDefault();LoginSubMit()}}>
             <div className="form-floating mb-3">
                 <input type="text" className="form-control" id="floatingInput" name="login" placeholder="name@example.com" onChange={event => setLogin(event.target.value)}></input>
                 <label htmlFor="floatingInput">Email address</label>
